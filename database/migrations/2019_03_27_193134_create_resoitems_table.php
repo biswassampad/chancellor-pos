@@ -17,6 +17,8 @@ class CreateResoitemsTable extends Migration
             $table->bigIncrements('id');
             $table->string('orderId');
             $table->string('itemid');
+            $table->string('itemname');
+            $table->string('itemqnty');
             $table->string('amount');
             $table->timestamps();
         });

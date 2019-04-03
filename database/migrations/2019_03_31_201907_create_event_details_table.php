@@ -19,6 +19,7 @@ class CreateEventDetailsTable extends Migration
             $table->string('purpose');
             $table->string('bookingdate');
             $table->string('guests');
+            $table->string('hall');
             $table->string('package');
             $table->string('price');
             $table->string('status');

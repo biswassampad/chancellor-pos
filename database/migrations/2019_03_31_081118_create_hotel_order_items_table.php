@@ -16,6 +16,7 @@ class CreateHotelOrderItemsTable extends Migration
         Schema::create('hotel_order_items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('OrderNo');
+            $table->string('RoomNo');
             $table->string('ItemId');
             $table->string('ItemName');
             $table->string('ItemQnty');

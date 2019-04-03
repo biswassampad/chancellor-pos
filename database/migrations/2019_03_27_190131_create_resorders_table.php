@@ -20,6 +20,7 @@ class CreateResordersTable extends Migration
             $table->string('tableno');
             $table->string('members');
             $table->string('mobileno');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -16,6 +16,7 @@ class CreateEventPackagesTable extends Migration
         Schema::create('event_packages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('PackageName');
+            $table->string('vnv');
             $table->string('Price');
             $table->string('PackageDetails');
             $table->timestamps();
