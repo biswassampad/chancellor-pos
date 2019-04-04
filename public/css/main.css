@@ -230,3 +230,16 @@ body{
   .modalor{
       background:  red;
   }
+  .ncount{
+      background:yellow;
+      border-radius:50%;
+      color:black;
+  }
+  .nodata{
+      margin-top:100px;
+      color:white;
+      font-size:22px;
+  }
+  .emoji{
+      margin-left:150px;
+  }

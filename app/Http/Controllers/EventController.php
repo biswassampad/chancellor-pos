@@ -38,9 +38,11 @@ class EventController extends Controller
     }
     public function addcustomer(Request $request){
         $time = \Carbon\Carbon::now()->toDateTimeString();
+        $rand = rand(100000,999999);
         $customer=DB::table('event_customers')->insert([
             'name'=>$request->name,
             'address'=>$request->address,
+            'eventno'=>$rand,
             'mobile'=>$request->mobile,
             'status'=>1,
             'created_at'=>$time,
@@ -48,6 +50,48 @@ class EventController extends Controller
         ]);
         return redirect()->back()->with('success','Event Customer Added Successfully');
     }
-    public function eventhalls(){}
+  public function geteventsbydates($id){
+      $events = DB::table('event_availables')->where('date',$id)->get();
+
+      return response()->json($events);
+  }
+  public function addevent(){
+      $events = DB::table('event_details')->insert([
+
+      ]);
+  }
+  public function geteventhalls(){
+      $halls = DB::table('event_halls')->get();
+      return response()->json($halls);
+  }
+  public function getcatgoriesveg(){
+      $categories = DB::table('event_packages')->where('vnv',1)->get();
+      return response()->json($categories);
+  }
+  
+  public function getcatgoriesnveg(){
+    $categories = DB::table('event_packages')->where('vnv',2)->get();
+    return response()->json($categories);
+}
+ public function geteventnumber($id){
+     $eventno = DB::table('event_customers')->where('id',$id)->get('eventno');
+
+     return response()->json($eventno);
+ } 
+ public function addeventdetails(Request $request){
+    $time = \Carbon\Carbon::now()->toDateTimeString();
+     $insert = DB::table('event_details')->insert([
+        'eventno'=>$request->eventno,
+        'purpose'=>$request->purpose,
+        'bookingdate'=>$request->date,
+        'guests'=>$request->guests,
+        'hall'=>$request->hall,
+        'package'=>$request->package,
+        'status'=>1,
+        'created_at'=>$time,
+        'updated_at'=>$time,
+     ]);
+     return response()->json($insert);
+ }
 }
 

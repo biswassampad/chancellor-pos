@@ -4,32 +4,50 @@
             <div class="sidebar-sticky milo">
               <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">
+                  <a class="nav-link" href="{{url('home')}}">
                     <span data-feather="home"></span>
                     <i class="fa fa-server" aria-hidden="true"></i>  Dashboard 
 
                   </a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link " href="#">
+                    <a class="nav-link " href="{{url('hrequests')}}">
+                      <span data-feather="home"></span>
+                      <i class="fa fa-flag" aria-hidden="true"></i>Hotel  Requests <span class="ncount">@{{hrequest.length}}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="">
+                      <span data-feather="home"></span>
+                      <i class="fa fa-envelope" aria-hidden="true"></i>Event  Requests <span class="ncount">@{{erequest.length}}</span>
+                    </a>
+                </li>
+                  <li class="nav-item">
+                      <a class="nav-link " href="{{url('addorderres')}}">
+                        <span data-feather="home"></span>
+                        <i class="fa fa-globe" aria-hidden="true"></i>  Notifications 
+                      </a>
+                    </li>
+                <li class="nav-item">
+                        <a class="nav-link " href="{{url('addorderres')}}">
                           <span data-feather="home"></span>
                           <i class="fa fa-cutlery" aria-hidden="true"></i>  Resturant 
                         </a>
                       </li>
                       <li class="nav-item">
-                            <a class="nav-link " href="#">
+                            <a class="nav-link " href="{{url('roomscheck')}}">
                               <span data-feather="home"></span>
                               <i class="fa fa-bed" aria-hidden="true"></i>  Lodging 
                             </a>
                           </li>
                           <li class="nav-item">
-                                <a class="nav-link " href="#">
+                                <a class="nav-link " href="{{url('eventcustomer')}}">
                                   <span data-feather="home"></span>
                                   <i class="fa fa-pied-piper-alt" aria-hidden="true"></i>  Events
                                 </a>
                               </li>
                               <li class="nav-item">
-                                    <a class="nav-link " href="#">
+                                    <a class="nav-link " href="{{url('roombook')}}">
                                       <span data-feather="home"></span>
                                       <i class="fa fa-calendar-check-o" aria-hidden="true"></i>  Check Availibility
                                     </a>
@@ -39,7 +57,7 @@
                                         <span>Admin Options</span>
                                       </h5>
                                   <li class="nav-item">
-                                        <a class="nav-link " href="#">
+                                        <a class="nav-link " href="{{url('settings')}}">
                                           <span data-feather="home"></span>
                                           <i class="fa fa-cogs" aria-hidden="true"></i>  Settings
                                         </a>

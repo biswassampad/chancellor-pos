@@ -1,13 +1,13 @@
 @extends('layouts.theme')
 @section('content')
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
             @if ( session()->has('success') )
             <p class="alert alert-success">
                          {{ session()->get('success') }}
                       </p>
                    @endif
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Add Customer</button>
             <!--Modal Begins-->
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
@@ -41,6 +41,16 @@
               </div>
             </div>
             <!--Modal Ends-->
+            @if(count($customers)==0)
+            <div class="col-md-12">
+              <div class="col-md-6 offset-4 nodata">
+               <span class="emoji"> ¯\_(ツ)_/¯<span><br>
+                <span>No Records Found,Please add customers</span>
+              </div>
+                        
+            </div>
+            @endif
+            @if(count($customers)>0)
             <div class="col-md-12">
                     <table class="table table-striped table-hover table-dark">
                         <thead>
@@ -68,6 +78,7 @@
                         </tbody>
                       </table>
             </div>
+            @endif
     </div>
 </div>
 @endsection

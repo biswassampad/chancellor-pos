@@ -8,12 +8,11 @@
                @endif
         <nav class="navbar navbar-light bg-light">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Add Customer</button>
-                <form class="form-inline">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                
               </nav>
               
+              <room-availibility></room-availibility>
+              <event-availibility></event-availibility>
               <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content">
@@ -41,13 +40,13 @@
                                                <input type="text"  class="form-control" id="customername" placeholder="How many days ..." name="stay">
                                     </div>      
                                             <div class="form-group">
-                                                <button type="submit">Add & Proceed</button>
+                                                <button type="submit" class="btn btn-success">Add & Proceed</button>
                                             </div>
                                     </form>
                       </div>
                     </div>
                   </div>
-                  <div class="container">
+                  {{-- <div class="container">
                         <table class="table table-hover table-dark">
                                 <thead>
                                   <tr>
@@ -72,7 +71,7 @@
                                  
                                 </tbody>
                               </table>
-                  </div>
+                  </div> --}}
 </div>
 
 @endsection

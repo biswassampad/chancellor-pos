@@ -17,98 +17,98 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');//dashboard
 Route::get('/addorderres',function(){
-    return view('addorderres');
+    return view('addorderres');//order page for resturant
 });
-Route::get('/addorderres','ResturantController@gettables');
+Route::get('/addorderres','ResturantController@gettables');//to get tabl details
 Route::get('/tableorder/{id}',function(){
-    return view('tableorder');
+    return view('tableorder');// table wise order details
 });
 Route::get('/additem',function(){
-    return view('additem');
+    return view('additem');// adding item to the tables
 });
-Route::post('/addtomenu','ResturantController@additemtomenu');
-Route::get('/searchitems','ResturantController@searchitems');
+Route::post('/addtomenu','ResturantController@additemtomenu');// adding item to the menu
+Route::get('/searchitems','ResturantController@searchitems');// search query for the resturant item menu
 Route::get('/addtable',function(){
-    return view('addtable');
+    return view('addtable');// add table to the resturant page
 });
-Route::post('/addtableid','ResturantController@addtable');
+Route::post('/addtableid','ResturantController@addtable');// add table post request 
 Route::get('/additem2this/{id}',function(){
-    return view('additem2this');
+    return view('additem2this'); // add items to this page with table id 
 });
-Route::get('/additem2this/{id}','ResturantController@getordered');
-Route::post('/searchitem','ResturantController@searchitem');
+Route::get('/additem2this/{id}','ResturantController@getordered');// get orders table number wise may be a axios request  
+Route::post('/searchitem','ResturantController@searchitem');//get searh items for hotel orders
 Route::get('/printorders',function(){
-    return view('listorder');
+    return view('listorder');//print page for resturant 
 });
 Route::get('/billkot/{id}',function(){
-    return view('billkot');
+    return view('billkot');// bill
 });
-Route::get('/billkot/{id}','ResturantController@billget');
-Route::get('/billkot/tableno/{id}','ResturantController@getTableNumber');
-Route::get('billkot/inactive/{id}','ResturantController@inactiveOrder');
+Route::get('/billkot/{id}','ResturantController@billget');// get bill by table id
+Route::get('/billkot/tableno/{id}','ResturantController@getTableNumber');// get bill by table no
+Route::get('billkot/inactive/{id}','ResturantController@inactiveOrder');// making table vacant for next order
 Route::get('/settings',function(){
-    return view('settings');
+    return view('settings'); // settings page view 
 });
 Route::get('/addroom',function(){
-    return view('addroom');
+    return view('addroom'); // add room page
 });
-Route::post('/addtoroom','HotelController@addnewroom');
+Route::post('/addtoroom','HotelController@addnewroom');//post request for adding room
 Route::get('/roomscheck',function(){
-    return view('roomscheck');
+    return view('roomscheck');// check availability of the room date wise page 
 });
-Route::get('/roomscheck','HotelController@getavailable');
+Route::get('/roomscheck','HotelController@getavailable');// get rooms availability check
 Route::get('/roombook',function(){
-    return view('roombook');
+    return view('roombook');// book room page
 });
-Route::get('/roombook','HotelController@getcustomers');
-Route::post('/addcustomer','HotelController@addcustomer');
+Route::get('/roombook','HotelController@getcustomers');//booked unbooked rooms on page 
+Route::post('/addcustomer','HotelController@addcustomer');// add guest for hotel post request
 Route::get('/addtoroom/{id}',function(){
-    return view('addtoroom');
+    return view('addtoroom');// assign room to guest
 });
-Route::get('/addtoroom/{id}','HotelController@getvacantrooms');
-Route::get('/getavailrooms','HotelController@getvacantroom');
-Route::post('/assignroomtocustomer/{id}','HotelController@addcustomertoroom');
+Route::get('/addtoroom/{id}','HotelController@getvacantrooms'); //get vacant rroom to assign the guest
+Route::get('/getavailrooms','HotelController@getvacantroom');//get vacant rooms ajax
+Route::post('/assignroomtocustomer/{id}','HotelController@addcustomertoroom');//assign room to a guest
 Route::get('/bookingdetails',function(){
-    return view('bookingdetails');
+    return view('bookingdetails');//booking details page 
 });
-Route::get('/customerdetails/{id}','HotelController@getcustomerfulldetails');
-Route::get('/updateroom/{id}','HotelController@updateroomstatus');
+Route::get('/customerdetails/{id}','HotelController@getcustomerfulldetails');//get full customer details
+Route::get('/updateroom/{id}','HotelController@updateroomstatus');//updating room status to engaged
 Route::get('/addorderhotel',function(){
-    return view('addorderhotel');
+    return view('addorderhotel');//add food order for hotel page
 });
-Route::get('/addorderhotel','HotelController@getrommslisted');
+Route::get('/addorderhotel','HotelController@getrommslisted');// add order to hotel post
 Route::get('/hotelorder/{id}',function(){
-    return view('hotelorder');
+    return view('hotelorder');// hotel orders page
 });
-Route::get('/hotelorder/{id}','HotelController@getitemsinorder');
-Route::post('/adddorderhotel/{id}','HotelController@addorderhotel');
-Route::get('/ordersforhotel/{id}','HotelController@ordersforhotel');
-Route::get('/orderdetails/{id}','HotelController@getdetailsorder');
+Route::get('/hotelorder/{id}','HotelController@getitemsinorder');//hotel orders room number wise
+Route::post('/adddorderhotel/{id}','HotelController@addorderhotel');//add order to hotel post
+Route::get('/ordersforhotel/{id}','HotelController@ordersforhotel');//get order list as per hotel
+Route::get('/orderdetails/{id}','HotelController@getdetailsorder');//order details as per room id 
 Route::get('/getorderdetails/{id}','HotelController@getdetailsoforder');
 Route::get('/adduser',function(){
-    return view('adduser');
+    return view('adduser');//add cashier
 });
-Route::get('/adduser','SettingsController@getusers');
-Route::post('/addcashier','SettingsController@addcashier');
+Route::get('/adduser','SettingsController@getusers');//get user list 
+Route::post('/addcashier','SettingsController@addcashier');//add cashier post
 Route::get('/addhalls',function(){
-    return view('addhalls');
+    return view('addhalls');//add halls
 });
-Route::post('/addhall','EventController@addEvntHall');
+Route::post('/addhall','EventController@addEvntHall');//add halls post
 Route::get('/addeventcat',function(){
-    return view('addeventcat');
+    return view('addeventcat');//add event category page 
 });
-Route::post('/addpackage','EventController@addcat');
+Route::post('/addpackage','EventController@addcat');//add event package post 
 Route::get('/eventcustomer',function(){
-    return view('eventcustomer');
+    return view('eventcustomer');//event customer page 
 });
-Route::get('/eventcustomer','EventController@eventcustomer');
-Route::post('/addeventcustomer','EventController@addcustomer');
+Route::get('/eventcustomer','EventController@eventcustomer');//get all event customer list 
+Route::post('/addeventcustomer','EventController@addcustomer');//add event customer list 
 Route::get('/bookevent/{id}',function(){
-    return view('bookevent');
+    return view('bookevent');//book event function 
 });
-Route::get('/eventhalls','EventController@eventhalls');
+Route::get('/eventhalls','EventController@eventhalls');//event halls details 
 Route::get('/test',function(){
     return view('test');
 });

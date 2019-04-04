@@ -29,7 +29,9 @@ Vue.component('list-room', require('./components/Listroom.vue').default);
 Vue.component('hotel-orderlist', require('./components/HotelOrderList.vue').default);
 Vue.component('application-form', require('./components/ApplicationForm.vue').default);
 Vue.component('event-form', require('./components/EventForm.vue').default);
-
+Vue.component('request-hot', require('./components/Requests.vue').default);
+Vue.component('room-availibility', require('./components/RoomAvailibility.vue').default);
+Vue.component('event-availibility', require('./components/EventAvailibility.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -44,12 +46,30 @@ const app = new Vue({
         order:{},
         rooms:[],
         roomresponse:'',
+        hrequest:[],
+        erequest:[],
+        hoteldate:'',
+        eventdate:'',
     },
     mounted() {
         axios.get('/api/getorders',{})
         .then(response =>{
            this.order=response.data;
            // console.log(response.data);
+        }).catch((error)=>{
+            console.log(error);
+        });
+
+        axios.get('/api/hnotif',{})
+        .then((response)=>{
+            this.hrequest=response.data;
+        }).catch((error)=>{
+            console.log(error);
+        });
+        
+        axios.get('/api/enotif',{})
+        .then((response)=>{
+            this.erequest=response.data;
         }).catch((error)=>{
             console.log(error);
         });
@@ -63,6 +83,9 @@ const app = new Vue({
         },
         generatehotelorder($id){
             console.log($id);
+        },
+        searchrooms(){
+            console.log(this.hoteldate);
         }
     }
 });

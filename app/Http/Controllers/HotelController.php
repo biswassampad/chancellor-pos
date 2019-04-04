@@ -127,5 +127,9 @@ class HotelController extends Controller
         return view('hotelorder',compact('order'));
 
     }
+    public function getroombydates($id){
+        $rooms = DB::table('hotel_availables')->where('date',$id)->orWhere('checkoutdate',$id)->get();
+        return response()->json($rooms);
+    }
     }
 

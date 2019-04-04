@@ -19,9 +19,10 @@
                 <label for="itemcatagory">Room Category</label>
                 <select class="form-control" name="category">
                     <option>Select Below</option>
-                    <option value="1">Royal</option>
-                    <option value="2">Exclusive</option>
-                    <option value="3">Elegent</option>
+                    <option value="1">Delux</option>
+                    <option value="2">Suit</option>
+                    <option value="3">Triplet</option>
+                    <option value="4">Quadra</option>
                 </select>
             </div>
               <div class="form-group">
