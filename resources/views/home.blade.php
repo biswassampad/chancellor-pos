@@ -35,7 +35,7 @@
                     <div class="flip-card-back avail-back">
                       <h4>Check Rooms Availibility</h4>
                       <h4>Check Events Availibility</h4>
-                      <a href="{{ url('roomscheck')}}" class="btn btn-primary">Go somewhere</a>
+                      <a href="{{ url('roombook')}}" class="btn btn-primary">Go somewhere</a>
                     </div>
                   </div>
                 </div>
@@ -47,7 +47,7 @@
                       <div class="flip-card-back room-back">
                         <h4>Book Rooms</h4>
                         <h4>Add Rooms Customers</h4>
-                        <a href="{{ url('roombook')}}" class="btn btn-primary">Go somewhere</a>
+                        <a href="{{ url('roomscheck')}}" class="btn btn-primary">Go somewhere</a>
                       </div>
                     </div>
                   </div>
@@ -71,7 +71,7 @@
                           <div class="flip-card-back event-back">
                             <h4>Add Event Customer</h4>
                             <h4>Book Events</h4>
-                            <a href="{{ url('bookevent')}}" class="btn btn-primary">Go somewhere</a>
+                            <a href="{{ url('eventcustomer')}}" class="btn btn-primary">Go somewhere</a>
                           </div>
                         </div>
                       </div>

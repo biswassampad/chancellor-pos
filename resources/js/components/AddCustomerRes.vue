@@ -2,6 +2,11 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <div v-if="this.number!=null">
+                    <img src="https://cdn.pixabay.com/photo/2013/07/12/12/40/thumb-146097_960_720.png" height="100px">
+                    <p>Order No {{number}} is ready to take orders.Kindly Refresh the page to continue.</p>
+                </div>
+                <div v-if="this.number==null">
                 <form @submit="formSubmit">
                 <div class="form-group">
                  <label for="customername">Customer Name</label>
@@ -54,14 +59,14 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <button type="submit">Add & Proceed</button>
+                            <button type="submit" class="btn btn-success">Add & Proceed</button>
                         </div>
                 </form>
                        <div v-if="number">
                            Ready to Accept order for Order No .{{number}} 
                           
                        </div>
-                        <a href="#">Click Here</a>
+                </div>
                         </div>
                     </div>
                 </div>
@@ -113,3 +118,8 @@
         }
 
 </script>
+<style>
+p{
+    color:black;
+}
+</style>

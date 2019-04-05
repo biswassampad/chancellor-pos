@@ -93,5 +93,13 @@ class EventController extends Controller
      ]);
      return response()->json($insert);
  }
+ public function getnotif(){
+     $notifs = DB::table('event_requests')->orderBy('created_at','DESC')->get();
+     return response()->json($notifs);
+ }
+ public function readnotif(){
+     $read = DB::table('event_requests')->where('status',1)->update(['status'=>0]);
+     return response()->json($read);
+ }
 }
 

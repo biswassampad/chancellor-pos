@@ -20,4 +20,16 @@ class NotificationController extends Controller
 
         return response()->json($requests);
     }
+    public function getcontacts(){
+        $requests = DB::table('contacts')->orderBy('created_at','DESC')->get();
+        return response()->json($requests);
+    }
+    public function readcontact(){
+        $read = DB::table('contacts')->where('status',1)->update(['status'=>0]);
+        return response()->json($read);
+    }
+    public function contactcount(){
+        $read = DB::table('contacts')->where('status',1)->get();
+        return response()->json($read);
+    }
 }

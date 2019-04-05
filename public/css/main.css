@@ -243,3 +243,6 @@ body{
   .emoji{
       margin-left:150px;
   }
+  .form-group label{
+      color:black !important;
+  }

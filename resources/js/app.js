@@ -32,6 +32,12 @@ Vue.component('event-form', require('./components/EventForm.vue').default);
 Vue.component('request-hot', require('./components/Requests.vue').default);
 Vue.component('room-availibility', require('./components/RoomAvailibility.vue').default);
 Vue.component('event-availibility', require('./components/EventAvailibility.vue').default);
+Vue.component('bill-res', require('./components/Billres.vue').default);
+Vue.component('hrq-list',require('./components/Hrequestslist.vue').default);
+Vue.component('erq-list',require('./components/Erequestlist.vue').default);
+Vue.component('contact-list',require('./components/Contactlist.vue').default);
+Vue.component('hotel-customer',require('./components/HotelCustomer.vue').default);
+Vue.component('hotel-form',require('./components/HoteBookingForm.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50,6 +56,7 @@ const app = new Vue({
         erequest:[],
         hoteldate:'',
         eventdate:'',
+        contacts:[],
     },
     mounted() {
         axios.get('/api/getorders',{})
@@ -72,6 +79,12 @@ const app = new Vue({
             this.erequest=response.data;
         }).catch((error)=>{
             console.log(error);
+        });
+        axios.get('/api/conts',{})
+        .then((response)=>{
+            this.contacts = response.data;
+        }).catch((error)=>{
+
         });
     },
     method:{

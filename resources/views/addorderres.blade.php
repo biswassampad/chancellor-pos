@@ -4,10 +4,6 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Add Customer
 </button>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </nav>
 <div class="container">
     <div class="row justify-content-center">
@@ -31,6 +27,23 @@
           </div>
          
     </div>
+    @if(count($tables)==0)
+    <div class="col-md-12">
+      <table class="table table-hover table-dark">
+        <thead>
+            <th scope="col">No Records Found Add Customer Please
+               
+            </th>
+            <th scope="col">
+                 <span>
+                  ¯\_(ツ)_/¯
+                   </span>
+            </th>
+        </thead>
+      </table>
+    </div>
+    @endif
+    @if(count($tables)>0)
     <div class="row">
             <table class="table table-striped table-hover table-dark">
                 <thead>
@@ -57,6 +70,7 @@
                 </tbody>
               </table>
     </div>
+    @endif
 </div>
 
 @endsection

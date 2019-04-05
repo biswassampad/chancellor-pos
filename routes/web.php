@@ -58,11 +58,11 @@ Route::post('/addtoroom','HotelController@addnewroom');//post request for adding
 Route::get('/roomscheck',function(){
     return view('roomscheck');// check availability of the room date wise page 
 });
-Route::get('/roomscheck','HotelController@getavailable');// get rooms availability check
+Route::get('/roomscheck','HotelController@getavailable');// get rooms availability checkweb
 Route::get('/roombook',function(){
     return view('roombook');// book room page
 });
-Route::get('/roombook','HotelController@getcustomers');//booked unbooked rooms on page 
+Route::get('/gethotelcustomers','HotelController@getcustomers');//booked unbooked rooms on page 
 Route::post('/addcustomer','HotelController@addcustomer');// add guest for hotel post request
 Route::get('/addtoroom/{id}',function(){
     return view('addtoroom');// assign room to guest
@@ -112,4 +112,17 @@ Route::get('/eventhalls','EventController@eventhalls');//event halls details
 Route::get('/test',function(){
     return view('test');
 });
+Route::get('hrequests',function(){
+    return view('hrequests');
+});
+Route::get('erequests',function(){
+    return view('erequests');
+});
+Route::get('contacts',function(){
+    return view('contacts');
+});
+Route::get('/bookroom',function(){
+    return view('bookroom');
+});
+Route::get('/gethotelrooms','HotelController@gethotelrooms');
 });

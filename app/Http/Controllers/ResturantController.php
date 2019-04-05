@@ -63,7 +63,7 @@ class ResturantController extends Controller
 
     }
     public function gettables(){
-        $tables=DB::table('resorders')->get();
+        $tables=DB::table('resorders')->where('status',1)->get();
 
         return view('addorderres',compact('tables'));
     }
@@ -113,7 +113,7 @@ class ResturantController extends Controller
 
         return response()->json($table);
     }
-    Public function inactiveOrder(Request $request){
+    Public function inactiveOrder($id){
         $time = \Carbon\Carbon::now()->toDateTimeString();
         $table = DB::table('resorders')->where('orderno',$id)->update([
             'status'=>0,
@@ -121,5 +121,17 @@ class ResturantController extends Controller
         ]);
 
         return response()->json($table);
+    }
+    public function getcustsomerforkot($id){
+        $details = DB::table('resorders')->where('orderno',$id)->get();
+        return response()->json($details);
+    }
+    public function orderitemsfororder($id){
+        $details = DB::table('resoitems')->where('orderId',$id)->get();
+        return response()->json($details);
+    }
+    public function orderitemsprice($id){
+        $price = DB::table('resoitems')->where('orderId',$id)->get('amount');
+        return response()->json($price);
     }
 }

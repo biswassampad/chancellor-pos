@@ -21,19 +21,21 @@ export default {
           var orderno = currentUrl.split("/")[2];
           axios.get('tableno/'+orderno,{})
         .then(response=>{
-            console.log(response.data);
+           
             this.tableno=response.data[0].tableno;
-            console.log(this.tableno);
-            axios.post('inactive/'+orderno,{
+           
+            axios.get('inactive/'+orderno,{
 
             }).then((response)=>{
-                console.log(response.data);
+               
             });
-            axios.post('vacanttable/'+this.tableno,{
+            axios.get('/api/vacanttable/'+this.tableno,{
 
             }).then((response)=>{
-                console.log(response.data);
-            });
+                console.log(response.data)
+            })
+            .catch((error)=>{})
+           
         }).catch((error)=>{
             console.log(error);
         });

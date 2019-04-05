@@ -10,18 +10,7 @@
 
                   </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{url('hrequests')}}">
-                      <span data-feather="home"></span>
-                      <i class="fa fa-flag" aria-hidden="true"></i>Hotel  Requests <span class="ncount">@{{hrequest.length}}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="">
-                      <span data-feather="home"></span>
-                      <i class="fa fa-envelope" aria-hidden="true"></i>Event  Requests <span class="ncount">@{{erequest.length}}</span>
-                    </a>
-                </li>
+               
                   <li class="nav-item">
                       <a class="nav-link " href="{{url('addorderres')}}">
                         <span data-feather="home"></span>
@@ -69,6 +58,24 @@
                                             </a>
                                           </li>
                               @endif
+                              <li class="nav-item">
+                                <a class="nav-link " href="{{url('hrequests')}}">
+                                  <span data-feather="home"></span>
+                                  <i class="fa fa-flag" aria-hidden="true"></i>Hotel  Requests <span class="ncount">@{{hrequest.length}}</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="{{url('erequests')}}">
+                                  <span data-feather="home"></span>
+                                  <i class="fa fa-envelope" aria-hidden="true"></i>Event  Requests <span class="ncount">@{{erequest.length}}</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link " href="{{url('contacts')}}">
+                                <span data-feather="home"></span>
+                              <i class="fa fa-comment" aria-hidden="true"></i>Contacts <span class="ncount">@{{contacts.length}}</span>
+                              </a>
+                          </li>
                               <li class="nav-item">
                                     <a class="nav-link " href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                       <span data-feather="home"></span>

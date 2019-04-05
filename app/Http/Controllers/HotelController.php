@@ -19,7 +19,7 @@ class HotelController extends Controller
         ]);
         return redirect()->back()->with('success','Room Added Successfully');
     }
-    public function getavailable(){
+    public function getavailable(){//check for today
         $rooms = DB::table('hotel_rooms')->get();
         return view('roomscheck',compact('rooms'));
     }
@@ -32,15 +32,16 @@ class HotelController extends Controller
             'Phone'=>$request->phone,
             'Members'=>$request->members,
             'Staying'=>$request->stay,
-            'Checkin_date'=>$checkin,
+            'Checkin_date'=>$request->checkindate,
+            'Checkout_date'=>$request->checkoutdate,
             'created_at'=>$time,
             'updated_at'=>$time,
         ]);
         return redirect()->back()->with('success','Customer Added Successfully');
     }
     public function getcustomers(){
-        $customer=DB::table('hotel_customers')->get();
-        return view('roombook',compact('customer'));
+        $customer=DB::table('hotel_customers')->where('status',1)->get();
+        return response()->json($customer);
     }
     public function getvacantrooms($id){
         $rooms = DB::table('hotel_rooms')->where('Engaged',0)->get();
@@ -130,6 +131,51 @@ class HotelController extends Controller
     public function getroombydates($id){
         $rooms = DB::table('hotel_availables')->where('date',$id)->orWhere('checkoutdate',$id)->get();
         return response()->json($rooms);
+    }
+    public function getnotif(){
+        $notifs = DB::table('hotel_requests')->orderBy('created_at','desc')->get();
+
+        return response()->json($notifs);
+    }
+    public function updatenotifications(){
+        $update = DB::table('hotel_requests')->where('status',1)->update([
+            'status'=>0
+        ]);
+        return response()->json($update);   
+    }
+    public function vacanttable($id){
+        $update = DB::table('tables')->where('tableno',$id)->update([
+            'available'=>1
+            ]);
+        return response()->json($update);
+    }
+    public function gethotelrooms(){
+        $rooms = DB::table('hotel_rooms')->where('engaged',0)->get();
+        
+        return response()->json($rooms);
+    }
+    public function BookRoom(Request $request){
+        $time = \Carbon\Carbon::now()->toDateTimeString();
+        $insert = DB::table('hotel_bookings')->insert([
+            'CustomerId'=>$request->name,
+            'RoomNo'=>$request->roomno,
+            'Members'=>$request->members,
+            'Status'=>1,
+            'CheckInDate'=>$request->checkin,
+            'CheckOutDate'=>$request->checkout,
+            'StayDuration'=>$request->duration,
+            'created_at'=>$time,
+            'updated_at'=>$time,
+        ]);
+        $onto =DB::table('hotel_availables')->insert([
+            'date'=>$request->checkin,
+            'roomno'=>$request->roomno,
+            'checkoutdate'=>$request->checkout,
+            'created_at'=>$time,
+            'updated_at'=>$time,
+        ]);
+
+        return response()->json($insert);
     }
     }
 
