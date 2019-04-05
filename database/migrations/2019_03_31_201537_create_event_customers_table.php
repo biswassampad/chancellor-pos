@@ -19,6 +19,7 @@ class CreateEventCustomersTable extends Migration
             $table->string('eventno');
             $table->string('address');
             $table->string('mobile');
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }

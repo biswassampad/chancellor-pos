@@ -17,7 +17,8 @@ class CreateHotelRoomsTable extends Migration
             $table->bigIncrements('id');
             $table->string('RoomNo');
             $table->string('RoomType');
-            $table->string('Engaged')->default('1');
+            $table->string('RoomPrice');
+            $table->string('Engaged')->default('0');
             $table->timestamps();
         });
     }

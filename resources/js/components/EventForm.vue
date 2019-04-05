@@ -95,10 +95,7 @@ methods:{
     addevent(){
         var currentUrl = window.location.pathname;
         var customerno = currentUrl.split("/")[2];
-        console.log(this.purpose),
-        console.log(this.date),
-        console.log(this.hall),
-        console.log(this.category),
+       
         axios.get('/api/geteventnumber/'+customerno,{
            
         }).then((response)=>{
@@ -112,7 +109,7 @@ methods:{
                  package:this.category,
              }).then((response)=>{
                  this.done= response.data;
-                 console.log(response.data);
+                
              }).catch((error)=>{
 
              });

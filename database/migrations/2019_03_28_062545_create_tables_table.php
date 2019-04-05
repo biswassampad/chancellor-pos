@@ -17,7 +17,7 @@ class CreateTablesTable extends Migration
             $table->bigIncrements('id');
             $table->string('tableno');
             $table->string('capacity');
-            $table->string('available');
+            $table->string('available')->default(1);
             $table->timestamps();
         });
     }

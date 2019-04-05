@@ -19,7 +19,7 @@ class CreateEventHallsTable extends Migration
             $table->string('maxcapacity');
             $table->string('mincapacity');
             $table->string('price');
-            $table->string('status');
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }

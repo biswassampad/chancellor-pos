@@ -41,7 +41,7 @@ export default {
         axios.get('/gethotelcustomers',{})
         .then((response)=>{
             this.customer = response.data;
-            console.log(response.data);
+            
         })
         .catch((error)=>{})
     }

@@ -49,3 +49,8 @@ Route::get('/readcontact','NotificationController@readcontact');
 Route::get('/conts','NotificationController@contactcount');
 Route::get('/vacanttable/{id}','HotelController@vacanttable');
 Route::post('/bookroom','HotelController@BookRoom');
+Route::get('/hotelbookingdetails/{id}','HotelController@GetDetails');
+Route::get('/hotelcutsomer/{id}','HotelController@GetCustomerDetails');
+Route::get('/roomdetails/{id}','HotelController@getroomdetails');
+Route::get('/clearbooking/{id}','HotelController@clearbooking');
+Route::get('/clearcustomer/{id}','HotelController@clearcustomer');

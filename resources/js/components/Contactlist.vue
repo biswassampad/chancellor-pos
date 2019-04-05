@@ -24,14 +24,14 @@ export default {
         axios.get('/api/contactlist',{})
         .then((response)=>{
             this.list = response.data;
-            console.log(response.data);
+            
         })
         .catch((error)=>{
             console.log(error);
         })
         axios.get('/api/readcontact',{})
         .then((response)=>{
-            console.log(response.data);
+           
         }).catch((error)=>{
             
         })

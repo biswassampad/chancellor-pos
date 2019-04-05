@@ -38,6 +38,7 @@ Vue.component('erq-list',require('./components/Erequestlist.vue').default);
 Vue.component('contact-list',require('./components/Contactlist.vue').default);
 Vue.component('hotel-customer',require('./components/HotelCustomer.vue').default);
 Vue.component('hotel-form',require('./components/HoteBookingForm.vue').default);
+Vue.component('checkout-bill',require('./components/CheckoutBill.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

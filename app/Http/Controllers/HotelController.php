@@ -177,5 +177,31 @@ class HotelController extends Controller
 
         return response()->json($insert);
     }
+    public function getbookingdetails(){
+        $data = DB::table('hotel_bookings')->where('status',1)->get();
+        return view('roomcheckout',compact('data'));
+    }
+    public function GetDetails($id){
+        $data = DB::table('hotel_bookings')->where('id',$id)->get();
+        return response()->json($data);
+    }
+    public function GetCustomerDetails($id){
+        $data = DB::table('hotel_customers')->where('id',$id)->where('status',1)->get();
+        return response()->json($data);
+    }
+    public function getroomdetails($id){
+        $data = DB::table('hotel_rooms')->where('RoomNo',$id)->get();
+        return response()->json($data);
+    }
+    public function clearbooking($id){
+        $data = DB::table('hotel_bookings')->where('CustomerId',$id)->update([
+            'Status'=>0
+        ]);
+        
+    }
+    public function clearcustomer($id){
+        $data = DB::table('hotel_customers')->where('id',$id)->update(['status'=>0]);
+        
     }
 
+}

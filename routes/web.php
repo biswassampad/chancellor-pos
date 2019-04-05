@@ -125,4 +125,11 @@ Route::get('/bookroom',function(){
     return view('bookroom');
 });
 Route::get('/gethotelrooms','HotelController@gethotelrooms');
+Route::get('/roomcheckout',function(){
+    return view('roomcheckout');
+});
+Route::get('/roomcheckout','HotelController@getbookingdetails');
+Route::get('/checkout/{id}',function(){
+    return view('checkout');
+});
 });

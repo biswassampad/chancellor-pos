@@ -32,7 +32,7 @@ export default {
             axios.get('/api/vacanttable/'+this.tableno,{
 
             }).then((response)=>{
-                console.log(response.data)
+                
             })
             .catch((error)=>{})
            

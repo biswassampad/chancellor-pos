@@ -19,7 +19,7 @@ class CreateHotelCustomersTable extends Migration
             $table->string('Address');
             $table->string('Members');
             $table->string('Phone');
-            $table->string('status');
+            $table->string('status')->default(1);
             $table->string('Checkin_date');
             $table->string('Checkout_date');
             $table->string('Staying');

@@ -72,7 +72,7 @@ export default {
             var date = this.eventdate;
             axios.get('/api/getvacantevents/'+date,{})
             .then((response)=>{
-                console.log(response.data);
+              
                 //this.eventlist = response.data;
             }).catch((error)=>{
                 console.log(error);

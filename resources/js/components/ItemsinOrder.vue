@@ -18,7 +18,7 @@ export default {
         axios.get('/getorderdetails/'+tableid,{})
         .then((response)=>{
             this.itemdetails = response.data;
-            console.log(response.data);
+           
         }).catch((error)=>{
 
         });

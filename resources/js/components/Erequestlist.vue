@@ -31,7 +31,7 @@ export default {
         })
         axios.get('/api/ereadnotifications',{})
         .then((response)=>{
-            console.log(response.data);
+            
         }).catch((error)=>{
             
         })

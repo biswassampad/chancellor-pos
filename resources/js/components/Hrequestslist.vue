@@ -28,7 +28,7 @@ export default {
         })
         axios.get('/api/readnotifications',{})
         .then((response)=>{
-            console.log(response.data);
+            
         }).catch((error)=>{
             
         })

@@ -18,9 +18,9 @@ class CreateHotelBookingsTable extends Migration
             $table->string('CustomerId');
             $table->string('RoomNo');
             $table->string('Members');
-            $table->string('Status');
+            $table->string('Status')->default(1);
             $table->string('CheckInDate');
-            $table->string('CheckOutDate')->nullable();
+            $table->string('CheckOutDate');
             $table->string('StayDuration');
             $table->timestamps();
         });

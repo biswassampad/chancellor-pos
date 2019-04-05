@@ -5,7 +5,7 @@
                 <div class="form-group">
                     <label for="customers">Customer Name</label>
                     <select class="form-control" v-model="customername">
-                        <option v-for="item in customers" :key="item.id">{{item.Name}}</option>
+                        <option v-for="item in customers" :key="item.id" :value="item.id">{{item.Name}}</option>
                     </select>  
                 </div>
                 <div class="form-group">
@@ -50,7 +50,8 @@ export default {
             members:'',
             checkin:'',
             checkout:'',
-            duration:''
+            duration:'',
+
         }
     },
     mounted(){

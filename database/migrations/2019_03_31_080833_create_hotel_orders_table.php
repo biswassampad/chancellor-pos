@@ -17,7 +17,7 @@ class CreateHotelOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->string('RoomNo');
             $table->string('OrderNo');
-            $table->string('Status');
+            $table->string('Status')->default(1);
             $table->timestamps();
         });
     }
