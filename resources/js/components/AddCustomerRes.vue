@@ -28,18 +28,11 @@
                     </select>
                 </div>
                 
-                 <div class="form-group" v-if="this.members==2">
-                    <label for="tableno">Tables Available for 2</label>
-                        <select class="form-control" id="tableno" v-model="tableno">
-                            <option> Select Below </option>
-                            <option v-for="table in tables.data" :key="table.id">{{table.tableno}}</option>
-                            </select>
-                    </div>
-                 <div class="form-group" v-if="this.members==4">
+                 <div class="form-group" v-if="this.members<=4">
                     <label for="tableno">Tables Available for 4</label>
                         <select class="form-control" id="tableno" v-model="tableno">
                             <option> Select Below </option>
-                            <option v-for="table in tables" :key="table.id">{{table.tableno}}</option>
+                            <option v-for="table in tables.data" :key="table.id">{{table.tableno}}</option>
                             </select>
                         </div>
 
@@ -47,7 +40,7 @@
                     <label for="tableno">Tables Available for 6</label>
                         <select class="form-control" id="tableno" v-model="tableno">
                             <option> Select Below </option>
-                            <option v-for="table in bigtables" :key="table.id">{{table.tableno}}</option>
+                            <option v-for="table in bigtables.data" :key="table.id">{{table.tableno}}</option>
                             </select>
                         </div>
                         
@@ -55,7 +48,7 @@
                     <label for="tableno">Tables Available for 8</label>
                         <select class="form-control" id="tableno" v-model="tableno">
                             <option> Select Below </option>
-                            <option v-for="table in bigtables" :key="table.id">{{table.tableno}}</option>
+                            <option v-for="table in bigtables.data" :key="table.id">{{table.tableno}}</option>
                             </select>
                         </div>
                         <div class="form-group">

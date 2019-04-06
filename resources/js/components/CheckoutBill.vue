@@ -44,6 +44,10 @@
       <th scope="row">Room Price/Day</th>
         <th scope="row">{{this.Room.RoomPrice}}</th>
     </tr>
+    <tr>
+      <th scope="row">Total Stay Price</th>
+        <th scope="row">{{total}}</th>
+    </tr>
    <tr>
       <th scope="row">CGST(6%):</th>
         <th scope="row">{{cgst}}</th>
@@ -73,6 +77,9 @@
                    
                    <button class="btn btn-primary">Print</button>
                 </div>
+            </div>
+            <div class="row justify-content-center">
+              Please do not refresh or back until bill is printed
             </div>
             
   </div>
@@ -126,14 +133,17 @@ export default {
 
   } ,
   computed:{
+    total(){
+      return parseInt(this.Room.RoomPrice)*parseInt(this.guest.StayDuration)
+    },
     cgst(){
-      return this.Room.RoomPrice*0.06;
+      return this.total*0.06;
     },
     sgst(){
-      return this.Room.RoomPrice*0.06;
+      return this.total*0.06;
     },
     gtotal(){
-      return this.cgst+this.sgst+ parseInt(this.Room.RoomPrice,10);
+      return this.cgst+this.sgst+this.total;
     }
   }
 }

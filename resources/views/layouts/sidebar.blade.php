@@ -24,6 +24,12 @@
                         </a>
                       </li>
                       <li class="nav-item">
+                        <a class="nav-link " href="{{url('roomscheck')}}">
+                          <span data-feather="home"></span>
+                          <i class="fa fa-cutlery" aria-hidden="true"></i> Room Booking 
+                        </a>
+                      </li>
+                      <li class="nav-item">
                           <a class="nav-link " href="{{url('addorderhotel')}}">
                             <span data-feather="home"></span>
                             <i class="fa fa-cutlery" aria-hidden="true"></i>  Add Order Hotel 

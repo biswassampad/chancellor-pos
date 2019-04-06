@@ -138,6 +138,9 @@
 
 </script>
 <style>
+label{
+    color:black;
+}
 .vnv{
     height:20px;
     width:20px;

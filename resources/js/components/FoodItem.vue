@@ -126,6 +126,9 @@
 
 </script>
 <style>
+div{
+    color:black !important;
+}
 .vnv{
     height:20px;
     width:20px;

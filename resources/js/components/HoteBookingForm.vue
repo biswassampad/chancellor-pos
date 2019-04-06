@@ -15,7 +15,7 @@
                     </select>  
                 </div>
                 <div class="form-group">
-                    <label for="customers">Room Number</label>
+                    <label for="customers">No Of Guests</label>
                     <input type="text" v-model="members" class="form-control" placeholder="No of guests">
                 </div>
                 

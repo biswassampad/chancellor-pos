@@ -126,7 +126,7 @@ methods:{
 h2{
     color:white;
 }
-label{
-    color:white;
+.form-group label{
+    color:white !important;
 }
 </style>
