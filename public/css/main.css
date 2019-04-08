@@ -156,7 +156,7 @@ body{
   }
   
   .flip-card-front {
-    color: white;
+    color: white !important;
     padding-top:80px;
     z-index: 2;
     background-position: center; /* Center the image */
@@ -165,7 +165,7 @@ body{
   }
   
   .flip-card-back {
-     color: white;
+     color: white !important;
     transform: rotateY(180deg);
     z-index: 1;
     background-position: center; /* Center the image */

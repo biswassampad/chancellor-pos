@@ -1,118 +1,164 @@
 <template>
-    <div class="row content-justify-center">
-            <div class="invoice-box">
-                    <table cellpadding="0" cellspacing="0">
-                        <tr class="top">
-                            <td colspan="2">
-                                <table>
-                                    <tr>
-                                        <td class="title">
-                                          <h1>KOT INVOICE</h1>
-                                        </td>
-                                        
-                                        <td>
-                                            <b>Table No #:{{customer[0].tableno}}</b><br>
-                                            Order No #: {{customer[0].orderno}}<br>
-                                            Created: {{customer[0].created_at}}<br>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td colspan="2">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            For:<br>
-                                            <b>Chancellor Grand.</b><br>
-                                            <br>
-                                        </td>
-                                        
-                                        <td>
-                                            <b>{{customer[0].name}}</b><br>
-                                            +91-{{customer[0].mobileno}}<br>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        
-                        <tr class="heading">
-                            <td>
-                                Item
-                            </td>
-                            <td>
-                                Qnty.
-                            </td>
-                            <td>
-                                Price
-                            </td>
-                        </tr>
-                       
-                        <tr class="item" v-for="item in itemlist" :key="item.id">
-                            <td>
-                                {{item.itemname}}
-                            </td>
-                            <td>
-                                    {{item.itemqnty}}
-                                </td>
-                            <td>
-                                   {{item.amount}}
-                            </td>
-                        </tr>
-                     
-                        <tr class="heading">
-                                <td>
-                                    Total
-                                </td>
-                                <td>
-                                   
-                                </td>
-                                <td>
-                                   {{sum}}
-                                
-                                </td>
-                            </tr>
-                            <tr class="item last">
-                                    <td>
-                                        CGST(2.5%)
-                                    </td>
-                                    <td>
-                                    
-                                </td>
-                                    <td>
-                                       {{cgst}}
-                                    </td>
-                                </tr>
-                                <tr class="item last">
-                                        <td>
-                                            SGST(2.5%)
-                                        </td>
-                                        <td>
-                                    
-                                        </td>
-                                        <td>
-                                            {{sgst}}
-                                        </td>
-                                    </tr>
-                                    <tr class="heading">
-                                            <td>
-                                                Grand Total
-                                            </td>
-                                            <td>
-                                    
-                                                </td>
-                                            <td>
-                                                {{total}}
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <a href="" @click.prevent="printme" target="_blank" class="btn btn-success"><i class="fa fa-print"></i> Print</a>
-                                    </div>
-    
-                <un-done></un-done>
+   <div class="container-fluid mangoose">
+    <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+            <h1 class="subha">Chancellor Grand</h1>
+            <h1>Invoice</h1>
+        </div>
+    </div>
+    <div class="row rest" >
+        <div class="col-md-4">
+            <b>GSTIN:21AANFC8464H1ZB</b><br>
+            <b>Addr:Baddhanpur,Bypass Road,Bbsr</b>
+        </div>
+        <div class="col-md-8 text-right">
+            <span style="font-size:45px;"><b>Table No : {{customer[0].tableno}}</b><br></span>
+            <b>Order No:{{customer[0].orderno}}</b><br>
+            <b>Transaction Date:{{customer[0].created_at}}</b><br>
+            <b>Customer Name:{{customer[0].name}}</b><br>
+        </div>
+    </div>
+
+    <div class="row sabdhan">
+        <table class="col-md-12 bishram">
+            <tr>
+                <td><b>Item Name</b></td>
+                <td><b>Qnty</b></td>
+                <td><b>Price</b></td>
+            </tr>
+            <tr v-for="item in itemlist" :key="item.id">
+                <td>{{item.itemname}}</td>
+                <td>{{item.itemqnty}}</td>
+                <td>{{item.amount}}</td>
+            </tr>
+           
+                
+           
+               <tr>
+                   <td>
+                       <b>Total</b>
+                   </td>
+                   <td></td>
+                   
+                   <td><b>{{sum}}</b></td>
+               </tr> 
+               
+               <tr>
+                    <td>
+                        <b>CGST</b>
+                    </td>
+                    <td><b>2.5%</b></td>
+                    
+                    <td><b>{{cgst}}</b></td>
+                </tr> 
+                
+               <tr>
+                    <td>
+                        <b>SGST</b>
+                    </td>
+                    <td><b>2.5%</b></td>
+                    
+                    <td><b>{{sgst}}</b></td>
+                </tr> 
+                
+               <tr>
+                    <td>
+                        <b>Grand Total</b>
+                    </td>
+                    <td></td>
+                    
+                    <td><b>{{total}}</b></td>
+                </tr> 
+        </table>
+    </div>
+   
+    <div class="row justify-content-center gordoh rest">
+        <h3>Thank You ! Please Visit Again.</h3>
+    </div>
+    <div class="row justify-content-center gordoh rest">
+        <h3>Visit Us at www.chancellorgrand.com</h3>
+    </div>
+  
+    <div class="row justify-content-center gordoh rest">
+        <h3>***Customer Copy***</h3>
+    </div>
+  <br>
+    <div class="row justify-content-center ropo">
+            <div class="col-md-12 text-center">
+                <h1>Chancellor Grand</h1>
+                <h1>Sales</h1>
             </div>
+        </div>
+        <div class="row rest">
+            <div class="col-md-4 rest">
+                <b>GSTIN:21AANFC8464H1ZB</b><br>
+                <b>Addr:Baddhanpur,Bypass Road,Bbsr</b>
+            </div>
+            <div class="col-md-8 text-right">
+            <span style="font-size:45px;"><b>Table No : {{customer[0].tableno}}</b><br></span>
+            <b>Order No:{{customer[0].orderno}}</b><br>
+            <b>Transaction Date:{{customer[0].created_at}}</b><br>
+            <b>Customer Name:{{customer[0].name}}</b><br>
+        </div>
+    </div>
+
+    <div class="row sabdhan">
+        <table class="col-md-12 bishram">
+            <tr>
+                <td><b>Item Name</b></td>
+                <td><b>Qnty</b></td>
+                <td><b>Price</b></td>
+            </tr>
+            <tr v-for="item in itemlist" :key="item.id">
+                <td>{{item.itemname}}</td>
+                <td>{{item.itemqnty}}</td>
+                <td>{{item.amount}}</td>
+            </tr>
+           
+                
+           
+               <tr>
+                   <td>
+                       <b>Total</b>
+                   </td>
+                   <td></td>
+                   
+                   <td><b>{{sum}}</b></td>
+               </tr> 
+               
+               <tr>
+                    <td>
+                        <b>CGST</b>
+                    </td>
+                    <td><b>2.5%</b></td>
+                    
+                    <td><b>{{cgst}}</b></td>
+                </tr> 
+                
+               <tr>
+                    <td>
+                        <b>SGST</b>
+                    </td>
+                    <td><b>2.5%</b></td>
+                    
+                    <td><b>{{sgst}}</b></td>
+                </tr> 
+                
+               <tr>
+                    <td>
+                        <b>Grand Total</b>
+                    </td>
+                    <td></td>
+                    
+                    <td><b>{{total}}</b></td>
+                </tr> 
+        </table>
+    </div>
+        <div class="row justify-content-center">
+            <h3>***Restaurant Copy***</h3>
+        </div>
+                   <un-done></un-done>
+</div>
 </template>
 
 <script>
@@ -152,6 +198,11 @@ export default {
             });
            
     },
+    methods:{
+            printme(){
+                window.print();
+            }
+    },
     computed:{
             sum(){
                return this.pricelist.reduce((acc, item) => parseInt(acc,10) + parseInt(item.amount,10), 0);
@@ -173,5 +224,37 @@ export default {
 </script>
 
 <style>
+.mangoose div{
+        margin-left:25px;
+    }
+ .mangoose   table{
+        margin-left:25px;
+        font-weight:bold;
+        width:100%;
+    }
+  .mangoose  h1{
+        font-size:80px;
+    }
+  .mangoose  html{
+        font-size:50px;
+        font-weight:400;
+    }
 
+  
+.mangoose  table tr{
+    border:2px solid black;
+    padding-top:10px;
+    padding-bottom: 10px;
+    font-size:50px;
+}
+.mangoose table td{
+    padding:10px;
+}
+.mangoose .rest{
+     font-size:50px;
+    font-weight:400;
+}
+@page { size: 58mm 100mm }
+body.receipt .sheet { width: 58mm; height: 100mm } /* change height as you like */
+@media print { body.receipt { width: 58mm } }
 </style>

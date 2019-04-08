@@ -1,4 +1,4 @@
-@extends('layouts.theme')
+@extends('layouts.blank')
 @section('content')
 <div class="container">
     <bill-res></bill-res>

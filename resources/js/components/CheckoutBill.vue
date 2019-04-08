@@ -75,7 +75,7 @@
                 </div>
                 <div class="col-md-6  bandua">
                    
-                   <button class="btn btn-primary">Print</button>
+                   <!-- <button class="btn btn-primary" @click.prevent="printme">Print</button> -->
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -130,7 +130,9 @@ export default {
     .catch((error)=>{})
   },
   methods:{
-
+    printme(){
+      window.print();
+    }
   } ,
   computed:{
     total(){

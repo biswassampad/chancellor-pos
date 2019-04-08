@@ -127,6 +127,6 @@ h2{
     color:white;
 }
 .form-group label{
-    color:white !important;
+
 }
 </style>

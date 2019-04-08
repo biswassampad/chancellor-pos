@@ -134,4 +134,8 @@ class ResturantController extends Controller
         $price = DB::table('resoitems')->where('orderId',$id)->get('amount');
         return response()->json($price);
     }
+    public function deleteItem($id){
+        $delete = DB::table('resoitems')->where('id',$id)->delete();
+        return redirect()->back()->with('success','Item Deleted Successfully');
+    }
 }

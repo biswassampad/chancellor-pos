@@ -132,4 +132,5 @@ Route::get('/roomcheckout','HotelController@getbookingdetails');
 Route::get('/checkout/{id}',function(){
     return view('checkout');
 });
+Route::get('/delitemhotel/{id}','ResturantController@deleteItem');
 });

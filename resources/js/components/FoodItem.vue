@@ -7,7 +7,10 @@
                         <input type="text" class="form-control" placeholder="What are you looking For???" v-model="search" @keyup="searchProduct()">
                     </div>
                     <div class="card-body love-dov">
-                        <ul class="list-group" v-if="results.length>0">
+                        <div class="col-md-12 message" v-if="this.message">
+                           Item Added To Order List
+                            </div>
+                        <ul class="list-group items" v-if="results.length>0">
                        <li class="list-group-item" v-for="item in results" :key="item.id">
                             <div class="row">
                                 <div class="col-sm-3">{{item.name}}
@@ -74,6 +77,7 @@
             orderId:'',
             returnData:'',
             name:'',
+            message:null,
             };
          },
   
@@ -86,6 +90,7 @@
                     }).then((response)=>{
                         // console.log(response);
                         this.results = response.data;
+                       
                     }).catch((error)=>{
                         console.log(error);
                     });
@@ -105,7 +110,8 @@
                             value:this.value,
                             id:id,
                         }).then((response)=>{
-                            // console.log(response.data);
+                            this.message = response.data;
+                             setTimeout(()=>{ this.message = null; }, 2000);
                         }).catch((error)=>{ 
                             console.log(error);
                         });
@@ -140,5 +146,15 @@ div{
     height:500px;
     overflow: scroll;
     overflow-x:hidden;
+}
+.message{
+    border:1px solid white;
+    height:40px;
+    text-align: center;
+    padding-top:5px;
+    border-radius:10px;
+    background:darkslateblue;
+    color:white !important;
+    font-size:20px;
 }
 </style>

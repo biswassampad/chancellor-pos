@@ -4,10 +4,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
             Add Order
     </button>
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        
       </nav>
       <div class="container">
           <div class="row">
@@ -20,12 +17,15 @@
                       </div>
         
           </div>
+          
+              @if ( session()->has('success') )
+                <p class="alert alert-danger">
+                             {{ session()->get('success') }}
+                          </p>
+                       @endif
           <div class="row">
                 @if(count($detailsorder)==0)
                 No Orders Yet
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                        Add Order
-                </button>
                 @endif
              @if(count($detailsorder)>0)
              <table class="table table-hover table-dark">
